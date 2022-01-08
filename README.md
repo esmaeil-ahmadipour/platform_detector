@@ -9,6 +9,6 @@ Platform Detector  Package : With this package, you can identify your app is run
 
 ```yaml
 dependencies:
-  platform_detector: ^0.0.2
+  platform_detector: ^0.0.3
 ```
 
