@@ -1,14 +1,30 @@
+Language: [English]
+
 # platform_detector
 
-Platform Detector  Package.
+Platform Detector  Package : With this package, you can identify your app is running on which platform.
+(Includes identification running on the web, mobile device, desktop, mobile browser, desktop browser, etc.)
 
-## Getting Started
+## Get started
 
-This project is a starting point for a Dart
-[package](https://flutter.dev/developing-packages/),
-a library module containing code that can be shared easily across
-multiple Flutter or Dart projects.
+### Add dependency
 
-For help getting started with Flutter, view our 
-[online documentation](https://flutter.dev/docs), which offers tutorials, 
-samples, guidance on mobile development, and a full API reference.
+```yaml
+dependencies:
+  platform_detector: ^0.0.2
+```
+
+### simple to use
+
+```dart
+import 'package:platform_detector/platform_detector.dart';
+
+void getHttp() async {
+  try {
+    var response = await Dio().get('http://www.google.com');
+    print(response);
+  } catch (e) {
+    print(e);
+  }
+}
+```

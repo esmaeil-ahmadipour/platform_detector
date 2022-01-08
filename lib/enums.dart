@@ -11,4 +11,4 @@ enum PlatformName {
   web_linux
 }
 enum PlatformType { mobile, desktop, web }
-enum PlatformCompany { apple, google, linux, microsoft}
+enum PlatformCompany { apple, google, linux, microsoft }

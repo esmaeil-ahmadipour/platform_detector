@@ -10,7 +10,7 @@ class PlatformDetector {
     init();
   }
 
-   PlatformDetails? _platformDetails;
+  PlatformDetails? _platformDetails;
 
   PlatformDetails get platformDetails => _platformDetails!;
 
