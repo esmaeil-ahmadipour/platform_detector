@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:platform_detector/enums.dart';
 import 'package:platform_detector/platform_detector.dart';
+import 'package:platform_detector/widgets/platform_type_widget.dart';
+import 'package:platform_detector_example/custom_widget/custom_widget.dart';
 
 void main() {
   runApp(MyApp());
@@ -11,15 +12,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
-        primarySwatch: PlatformDetector().platformDetails.platformName ==
-                PlatformName.web_windows
-            ? Colors
-                .blue //  When app is web_application on windows , Set appBar to blue color .
-            : PlatformDetector().platformDetails.platformName ==
-                    PlatformName.android
-                ? Colors
-                    .green // When app is android , Set appBar to green color .
-                : Colors.red, // Else ,  Set appBar to red color .
+        primarySwatch: PlatformDetector.platform.byName(
+          // by this (method) set primarySwatch color for some platforms and other platform get color from defaultValue (white color).
+            defaultValue: Colors.white,
+            ifAndroid: Colors.green,
+            ifWebWindows: Colors.blue,
+            ifIOS: Colors.black),
       ),
       home: MyHomePage(),
     );
@@ -32,13 +30,31 @@ class MyHomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-            PlatformDetector().platformDetails.platformType == PlatformType.web
-                ? "This is Web Application." // When platformType is web.
-                : PlatformDetector().platformDetails.platformType ==
-                        PlatformType.mobile
-                    ? "This is Mobile Application." // When platformType is mobile device.
-                    : "This is Desktop Application." // When platformType is desktop device.
-            ),
+          PlatformDetector.platform.byType(
+            // by this (method) set custom text in appbar (according platform type) .
+            defaultValue: "",
+            ifWeb: "This is Web Application.",
+            ifDesktop: "This is Desktop Application.",
+            ifMobile: "This is Mobile Application.",
+          ),
+        ),
+      ),
+      body: Center(
+        child: PlatformDetectByType(
+          // by this (method) set custom widget according platform type .
+          ifWeb: CustomWidget(
+            icon: Icons.web,
+            text: "Web",
+          ),
+          ifDesktop: CustomWidget(
+            icon: Icons.desktop_mac,
+            text: "Desktop",
+          ),
+          ifMobile: CustomWidget(
+            icon: Icons.phone_android,
+            text: "Mobile",
+          ),
+        ),
       ),
     );
   }
