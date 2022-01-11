@@ -15,9 +15,10 @@ class PlatformDetector {
 
   static PlatformDetector get platform => _platformDetector;
 
-  PlatformType? _type;
-  PlatformName? _name;
-  PlatformCompany? _company;
+  PlatformType? _type; // value sample : web , mobile , desktop .
+  PlatformName? _name; // value sample : android , web_android , windows , etc .
+  PlatformCompany?
+      _company; // value sample : apple , google , microsoft , linux .
 
   PlatformCompany get company => _company!;
 
@@ -41,6 +42,7 @@ class PlatformDetector {
     // by this (method) we sure inside the web and on which platform .
 
     final userAgent = window.navigator.userAgent.toString().toLowerCase();
+    // detect platform  from userAgent & save other details
     if (userAgent.contains("iphone") || userAgent.contains("ipad")) {
       type = PlatformType.web;
       name = PlatformName.iOS;
@@ -73,7 +75,7 @@ class PlatformDetector {
   }
 
   detectPlatforms() {
-    // by this (method) we can detect platform .
+    // by this (method) we can detect platform & save other details .
     switch (defaultTargetPlatform) {
       case TargetPlatform.iOS:
         {
@@ -114,7 +116,7 @@ class PlatformDetector {
 
   dynamic byCompany(
       {required defaultValue, ifApple, ifGoogle, ifLinux, ifMicrosoft}) {
-    // by this (method) we can return some value for the platform company .
+    // by this (method) we can return some value for the platform company & save other details .
     switch (PlatformDetector.platform.company) {
       case PlatformCompany.apple:
         return ifApple ?? defaultValue;

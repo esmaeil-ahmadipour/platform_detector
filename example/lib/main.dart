@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData(
         primarySwatch: PlatformDetector.platform.byName(
-          // by this (method) set primarySwatch color for some platforms and other platform get color from defaultValue (white color).
+            // by this (method) set primarySwatch color for some platforms and other platform get color from defaultValue (white color).
             defaultValue: Colors.white,
             ifAndroid: Colors.green,
             ifWebWindows: Colors.blue,
@@ -41,7 +41,7 @@ class MyHomePage extends StatelessWidget {
       ),
       body: Center(
         child: PlatformDetectByType(
-          // by this (method) set custom widget according platform type .
+          // by this (widget) set custom widget according platform type .
           ifWeb: CustomWidget(
             icon: Icons.web,
             text: "Web",

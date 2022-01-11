@@ -1,3 +1,6 @@
+## 0.1.1
+* add/edit documents .
+
 ## 0.1.0
 * add util widgets and methods & more changes at platform_detector.dart .
 
