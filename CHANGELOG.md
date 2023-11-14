@@ -1,3 +1,8 @@
+## 0.2.0
+* updating documentation , guidelines and examples .
+* optimization of naming classes and variables .
+* updating dependencies .
+
 ## 0.1.1
 * add/edit documents .
 
@@ -11,4 +16,4 @@
 * add documents & sample
 
 ## 0.0.1
-* TODO: Describe initial release.
+* initial release.
